@@ -1,23 +1,23 @@
 /* ============================================================
    Diaimic Independent Shared Living — Stylesheet
-   Color palette: olive green, beige/cream, white, earth tones, gold
+   Color palette: deep maroon, rose/pink, blush, white (from logo)
    ============================================================ */
 
 /* ---- Custom Properties ---- */
 :root {
-  --clr-olive:       #5c6b3a;
-  --clr-olive-dk:    #404b27;
-  --clr-olive-lt:    #7a8f4e;
-  --clr-gold:        #b8943f;
-  --clr-gold-lt:     #d4ab5a;
-  --clr-beige:       #f5f0e8;
-  --clr-cream:       #faf8f4;
-  --clr-brown:       #7a5c3a;
-  --clr-brown-lt:    #a07850;
-  --clr-text:        #2d2a24;
-  --clr-text-muted:  #6b6457;
+  --clr-olive:       #d4699a;   /* rose pink — primary action / icon */
+  --clr-olive-dk:    #3d0d1f;   /* deep maroon — dominant dark */
+  --clr-olive-lt:    #c45585;   /* medium rose */
+  --clr-gold:        #e896c0;   /* light rose accent */
+  --clr-gold-lt:     #f0b8d4;   /* very light rose */
+  --clr-beige:       #faf0f5;   /* blush white */
+  --clr-cream:       #fdf8fb;   /* near white with pink tint */
+  --clr-brown:       #8b2d4f;   /* medium maroon */
+  --clr-brown-lt:    #b8527f;   /* muted rose-maroon */
+  --clr-text:        #2a0815;   /* near-black maroon for body text */
+  --clr-text-muted:  #7a4560;   /* muted maroon for secondary text */
   --clr-white:       #ffffff;
-  --clr-border:      #e0d8cb;
+  --clr-border:      #f0d5e4;   /* soft pink border */
 
   --font-sans:       'Inter', system-ui, -apple-system, sans-serif;
   --font-serif:      'Playfair Display', Georgia, serif;
@@ -210,9 +210,32 @@ ul { list-style: none; }
 
 .nav-logo {
   display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  /* Logo has dark bg — visible on dark header; on scroll white bg we brighten */
+  filter: brightness(1);
+  transition: filter var(--transition);
+  border-radius: var(--radius-sm);
+}
+
+/* On white header, give logo a subtle background so it stays legible */
+.site-header.scrolled .nav-logo-img {
+  filter: brightness(1);
+  background: var(--clr-olive-dk);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+}
+
+.nav-logo-fallback {
+  display: none; /* shown via onerror JS if logo.png missing */
   flex-direction: column;
   line-height: 1.1;
-  text-decoration: none;
 }
 
 .logo-text {
@@ -333,9 +356,9 @@ ul { list-style: none; }
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(64, 75, 39, 0.78) 0%,
-    rgba(30, 35, 18, 0.65) 60%,
-    rgba(122, 92, 58, 0.45) 100%
+    rgba(61, 13, 31, 0.82) 0%,
+    rgba(30, 5, 15, 0.70) 60%,
+    rgba(180, 82, 127, 0.42) 100%
   );
   z-index: 1;
 }
@@ -519,7 +542,7 @@ ul { list-style: none; }
 .serve-icon {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, var(--clr-olive-lt), var(--clr-olive-dk));
+  background: linear-gradient(135deg, var(--clr-olive), var(--clr-olive-dk));
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -560,8 +583,8 @@ ul { list-style: none; }
 }
 
 .feature-card {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.11);
   border-radius: var(--radius-md);
   padding: 32px 24px;
   transition: background var(--transition), border-color var(--transition),
@@ -569,7 +592,7 @@ ul { list-style: none; }
 }
 
 .feature-card:hover {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.10);
   border-color: var(--clr-gold);
   transform: translateY(-4px);
 }
@@ -692,7 +715,7 @@ ul { list-style: none; }
   left: 0;
   right: 0;
   padding: 24px 16px 14px;
-  background: linear-gradient(to top, rgba(40, 35, 22, 0.75), transparent);
+  background: linear-gradient(to top, rgba(61, 13, 31, 0.80), transparent);
   color: var(--clr-white);
   font-size: 0.85rem;
   font-weight: 600;
@@ -808,6 +831,19 @@ ul { list-style: none; }
   margin-bottom: 56px;
 }
 
+.footer-logo-img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 16px;
+  border-radius: var(--radius-sm);
+}
+
+.footer-logo-fallback {
+  display: none; /* shown via onerror JS if logo.png missing */
+  margin-bottom: 8px;
+}
+
 .footer-logo-text {
   font-family: var(--font-serif);
   font-size: 1.8rem;
@@ -895,7 +931,7 @@ ul { list-style: none; }
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--clr-olive-dk);
+    background: var(--clr-olive-dk); /* deep maroon */
     flex-direction: column;
     align-items: center;
     justify-content: center;

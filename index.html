@@ -16,8 +16,16 @@
   <header class="site-header" id="site-header">
     <nav class="nav-container">
       <a href="#hero" class="nav-logo">
-        <span class="logo-text">Diaimic</span>
-        <span class="logo-sub">Independent Shared Living</span>
+        <img
+          src="assets/logo.png"
+          alt="Diaimic Independent Living logo"
+          class="nav-logo-img"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <span class="nav-logo-fallback">
+          <span class="logo-text">Diaimic</span>
+          <span class="logo-sub">Independent Shared Living</span>
+        </span>
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span class="hamburger-line"></span>
@@ -396,8 +404,16 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <p class="footer-logo-text">Diaimic</p>
-          <p class="footer-logo-sub">Independent Shared Living</p>
+          <img
+            src="assets/logo.png"
+            alt="Diaimic Independent Living"
+            class="footer-logo-img"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <div class="footer-logo-fallback">
+            <p class="footer-logo-text">Diaimic</p>
+            <p class="footer-logo-sub">Independent Shared Living</p>
+          </div>
           <p class="footer-tagline">Safe. Clean. Structured. Supportive.</p>
         </div>
         <div class="footer-links-col">
