@@ -215,21 +215,25 @@ ul { list-style: none; }
 }
 
 .nav-logo-img {
-  height: 56px;
-  width: auto;
-  object-fit: contain;
-  /* Logo has dark bg — visible on dark header; on scroll white bg we brighten */
-  filter: brightness(1);
-  transition: filter var(--transition);
-  border-radius: var(--radius-sm);
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 105, 154, 0.6);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15), 0 2px 10px rgba(0,0,0,0.25);
+  transition: box-shadow var(--transition), border-color var(--transition);
+  flex-shrink: 0;
 }
 
-/* On white header, give logo a subtle background so it stays legible */
+.nav-logo:hover .nav-logo-img {
+  border-color: var(--clr-olive);
+  box-shadow: 0 0 0 3px rgba(212, 105, 154, 0.3), 0 4px 14px rgba(0,0,0,0.3);
+}
+
+/* Tighten ring slightly on white header */
 .site-header.scrolled .nav-logo-img {
-  filter: brightness(1);
-  background: var(--clr-olive-dk);
-  border-radius: var(--radius-sm);
-  padding: 2px 6px;
+  border-color: var(--clr-olive);
+  box-shadow: 0 0 0 3px rgba(212, 105, 154, 0.2), 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .nav-logo-fallback {
